@@ -13,7 +13,7 @@ osc(22, 0.8, [0.1, 1.0].smooth(1))
 src(s0).pixelate(30,30).modulate(noise(1), 1).out();
 ```
 
-```
+```js
 s0.initCam();
 s1.initScreen();
 
