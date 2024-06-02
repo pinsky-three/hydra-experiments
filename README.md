@@ -9,6 +9,10 @@ osc(22, 0.8, [0.1, 1.0].smooth(1))
   .out(o0);
 ```
 
+```js
+src(s0).pixelate(30,30).modulate(noise(1), 1).out();
+```
+
 // s0.initCam() //initialize webcam as external source 's0'
 
 // a.setBins(6)
