@@ -20,6 +20,24 @@ s1.initScreen();
 src(s0).modulatePixelate(noise(5), 30).diff(src(s1)).out();
 ```
 
+```js
+s0.initCam(0)
+
+
+a.setScale(1)
+a.setBins(8)
+
+src(s0)
+  //.modulate(noise(4))
+  //.thresh(0.1)
+  .diff(src(s0).modulate(noise(5)), 3)
+  .modulate(osc(20, 0.2, 2))
+
+  .modulate(voronoi(20, 3))
+  //.rotate(()=>1600*Math.PI*time)
+  .out()
+```
+
 // s0.initCam() //initialize webcam as external source 's0'
 
 // a.setBins(6)
