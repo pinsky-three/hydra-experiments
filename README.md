@@ -38,6 +38,18 @@ src(s0)
   .out()
 ```
 
+```js
+s0.initCam()
+
+osc(10, 1., ()=>2*mouse.x/width)
+  //.modulateScale(osc(10,0.2,()=>2*mouse.y/height).kaleid(12))
+  //.repeat(6,4)
+  //.modulate(o0, 0.03)
+  .modulateKaleid(shape(4, 0.1,1))
+  .modulate(src(s0), () => 8+Math.sin(time))
+  .out(o0)
+```
+
 // s0.initCam() //initialize webcam as external source 's0'
 
 // a.setBins(6)
