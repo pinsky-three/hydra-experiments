@@ -50,21 +50,17 @@ osc(10, 1., ()=>2*mouse.x/width)
   .out(o0)
 ```
 
-// s0.initCam() //initialize webcam as external source 's0'
+```js
+a.setBins(4);
+a.setSmooth(.8);
+a.setScale(59);
 
-// a.setBins(6)
-
-// a.setBins(8)
-//a.setScale(0.1)
-// osc(110, 0.1,()=>a.fft[7]*3).modulate(noise(), ()=>a.fft[0]).out(o0)
-
-noise([1,100].smooth()).pixelate(20,20).modulate(prev(), 1).out();
-
-
-
-// a.show();
-
-// osc(10, 0, () => a.fft[2]*6)
-//   .out()
-
-// src(s0).out() // use external source 's0' inside Hydra
+src(s0)
+	.rotate(()=>-.6*time+10*a.fft[0])
+	.mask(shape(0.056).scale(2.1, 1.6))
+	.scale(2.94)
+	.modulate(noise(1.797, () => 0.177 * a.fft[0] * a.fft[3]))
+	.modulate(src(s0).scale(() => 1.8 + 2*a.fft[0]).rotate(()=>.7*time+10*a.fft[2]))
+	.modulateHue(osc(10, 10, 10))
+	.out();
+```
